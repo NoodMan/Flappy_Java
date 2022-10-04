@@ -11,6 +11,7 @@ public class Flappy extends Canvas implements KeyListener {
     protected int largeurEcran = 700;
     protected int hauteurEcran = 400;
 
+    protected boolean pause = false;
     protected Oiseau oiseau;
 
     public Flappy() throws InterruptedException {
@@ -40,13 +41,17 @@ public class Flappy extends Canvas implements KeyListener {
 // appel de la methode demarrer
         demarrer();
     }
+    public void initialiser(){
+        oiseau = new Oiseau(hauteurEcran);
+        oiseau.setVitesseVertical(-1);
+        pause = false;
+    }
 
     public void demarrer() throws InterruptedException {
 
         long indexFrame = 0;
 
-        oiseau = new Oiseau(hauteurEcran);
-        oiseau.setVitesseVertical(-1);
+        initialiser();
 
 
         while (true) {
@@ -60,15 +65,21 @@ public class Flappy extends Canvas implements KeyListener {
 
             oiseau.dessiner(dessin);
 
-            if(oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
-                System.out.println("PERDU!! 😝");
-            } else {
-// pour que l'oiseau descende
-                oiseau.deplacement();
+            if(!pause) {
+
+//si jamais l'oiseau est tombé par terre
+                if (oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
+                    System.out.println("PERDU!! 😝");
+                    pause = true;
+                } else {
+// sinon si le jeu continu / pour que l'oiseau descende
+                    oiseau.deplacement();
+                }
+            }else  {
+                //pour que la fenetre change de couleur quand le jeu est en pause et si on perd
+                dessin.setColor(new Color(0, 0, 0, 0.1f));
+                dessin.fillRect(0, 0, largeurEcran, largeurEcran);
             }
-
-
-
             //LE CODE ICI <----
 
             //-----------------------------
@@ -95,12 +106,24 @@ public class Flappy extends Canvas implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-
-//test pour verifier si ecouteur fonctionne (bien mettre la souris sur la fenetre Java!!)
+    public void keyReleased(KeyEvent e){
+//sur la fenetre faire espace plusieur fois sinon on n'as perdu !!!
         if(e.getKeyCode()== KeyEvent.VK_SPACE){
-            System.out.println("Ca maaaarche 🙃!!!");
+           oiseau.setVitesseVertical(2);
         }
+//appuyer sur enter pour reinitialiser le jeu!!
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            initialiser();
+        }
+// appuyer sur P pour mettre en pause le jeu et P pour reprendre
+        if(e.getKeyCode() == KeyEvent.VK_P){
+            //inverser un boolean
+            pause = !pause;
+        }
+//test pour verifier si ecouteur fonctionne (bien mettre la souris sur la fenetre Java!!)
+//        if(e.getKeyCode()== KeyEvent.VK_SPACE){
+//            System.out.println("Ca maaaarche 🙃!!!");
+//        }
 //        System.out.println(e.getKeyChar());
 //        System.out.println(e.getKeyCode());
     }

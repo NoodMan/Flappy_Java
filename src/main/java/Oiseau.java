@@ -28,9 +28,13 @@ public class Oiseau extends Carre {
     }
 
     public void deplacement(){
-        //pour dimunier la vitesse vertical
+//pour dimunier la vitesse vertical
         y-= vitesseVertical;
         vitesseVertical -= 0.05f;
+// pour deplacer l'oiseau vers le haut (touche espace)
+        if(y < 0) {
+            vitesseVertical = Math.abs(vitesseVertical) * -1;
+        }
     }
 
     public void sauter(){
