@@ -18,7 +18,7 @@ public abstract class Carre extends Sprite{
         super(x, y, couleur);
         this.largeur = largeur;
     }
-// couleur par defaut RED (constructeur Sprite)
+// couleur par défaut RED (constructeur Sprite)
     public Carre(int x, int y, int largeur) {
         super(x, y);
         this.largeur = largeur;

@@ -14,7 +14,7 @@ public abstract class Sprite {
         this.y = y;
         this.couleur = couleur;
     }
-//valeur couleur par defaut
+//valeur couleur par défaut
     public Sprite(int x, int y) {
         this.x = x;
         this.y = y;

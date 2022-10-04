@@ -2,23 +2,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
-//Flappy possede un oiseau
-
+//Flappy possède un oiseau
 
 public class Flappy extends Canvas implements KeyListener {
 
+//(propriétés)
     protected int largeurEcran = 700;
     protected int hauteurEcran = 400;
 
     protected boolean pause = false;
     protected Oiseau oiseau;
+//(propriété)création de la collection déplaçable
+    protected ArrayList<Deplacable> listeDeplacable = new ArrayList<>();
+    protected Tuyau tuyau;
+
 
     public Flappy() throws InterruptedException {
         JFrame fenetre = new JFrame("Flappy");
-        //On récupère le panneau de la fenetre principale
+        //On récupère le panneau de la fenêtre principale
         JPanel panneau = (JPanel) fenetre.getContentPane();
-        //On définie la hauteur / largeur de l'écran
+        //on définit la hauteur / largeur de l'écran
         panneau.setPreferredSize(new Dimension(largeurEcran, hauteurEcran));
         setBounds(0, 0, largeurEcran, hauteurEcran);
         //On ajoute cette classe (qui hérite de Canvas) comme composant du panneau principal
@@ -32,19 +37,30 @@ public class Flappy extends Canvas implements KeyListener {
         fenetre.requestFocus();
         fenetre.addKeyListener(this);
 
-//On indique que le raffraichissement de l'ecran doit être fait manuellement.
+//On indique que le rafraîchissement de l'écran doit être fait manuellement.
         createBufferStrategy(2);
         setIgnoreRepaint(true);
         this.setFocusable(false);
 
 
-// appel de la methode demarrer
+//appel de la methode démarrer
         demarrer();
     }
-    public void initialiser(){
-        oiseau = new Oiseau(hauteurEcran);
-        oiseau.setVitesseVertical(-1);
-        pause = false;
+    public void initialiser() {
+//si c'est la première initialisation
+        if (oiseau == null) {
+            oiseau = new Oiseau(hauteurEcran);
+            oiseau.setVitesseVertical(-1);
+            pause = false;
+            tuyau = new Tuyau(200, hauteurEcran, largeurEcran);
+
+            listeDeplacable = new ArrayList<>();
+            listeDeplacable.add(tuyau);
+            listeDeplacable.add(oiseau);
+        } else {
+            oiseau.reinitialiser(hauteurEcran);
+            tuyau.reinitialiser(largeurEcran);
+        }
     }
 
     public void demarrer() throws InterruptedException {
@@ -53,8 +69,11 @@ public class Flappy extends Canvas implements KeyListener {
 
         initialiser();
 
+//        System.out.println(tuyau);
+//        System.out.println(listeDeplacable.get(1));
 
         while (true) {
+
             indexFrame++;
             Graphics2D dessin = (Graphics2D) getBufferStrategy().getDrawGraphics();
 
@@ -64,6 +83,7 @@ public class Flappy extends Canvas implements KeyListener {
             dessin.fillRect(0, 0, largeurEcran, hauteurEcran);
 
             oiseau.dessiner(dessin);
+            tuyau.dessiner(dessin);
 
             if(!pause) {
 
@@ -73,14 +93,20 @@ public class Flappy extends Canvas implements KeyListener {
                     pause = true;
                 } else {
 // sinon si le jeu continu / pour que l'oiseau descende
-                    oiseau.deplacement();
+//                    oiseau.deplacer();
+// pour que le tuyau bouge
+//                    tuyau.deplacer();
+
+                    // pour déplacer tout ce qui bouge
+                    for(Deplacable deplacable : listeDeplacable) {
+                        deplacable.deplacer();
+                    }
                 }
             }else  {
-                //pour que la fenetre change de couleur quand le jeu est en pause et si on perd
+                //pour que la fenetre change de couleur quand le jeu ait en pause et si on perd
                 dessin.setColor(new Color(0, 0, 0, 0.1f));
                 dessin.fillRect(0, 0, largeurEcran, largeurEcran);
             }
-            //LE CODE ICI <----
 
             //-----------------------------
             dessin.dispose();
@@ -107,11 +133,11 @@ public class Flappy extends Canvas implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e){
-//sur la fenetre faire espace plusieur fois sinon on n'as perdu !!!
+//sur la fenêtre faire espace plusieurs fois sinon on a perdu !!!
         if(e.getKeyCode()== KeyEvent.VK_SPACE){
            oiseau.setVitesseVertical(2);
         }
-//appuyer sur enter pour reinitialiser le jeu!!
+//appuyer sur entrer pour réinitialiser le jeu!!
         if(e.getKeyCode() == KeyEvent.VK_ENTER){
             initialiser();
         }
@@ -120,9 +146,9 @@ public class Flappy extends Canvas implements KeyListener {
             //inverser un boolean
             pause = !pause;
         }
-//test pour verifier si ecouteur fonctionne (bien mettre la souris sur la fenetre Java!!)
+//test pour verifier si écouteur fonctionne (bien mettre la souris sur la fenêtre Java!!)
 //        if(e.getKeyCode()== KeyEvent.VK_SPACE){
-//            System.out.println("Ca maaaarche 🙃!!!");
+//            System.out.println("ça marche 🙃!!!");
 //        }
 //        System.out.println(e.getKeyChar());
 //        System.out.println(e.getKeyCode());
