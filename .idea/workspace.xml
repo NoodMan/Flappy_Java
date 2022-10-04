@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="ajout touche pause">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Deplacable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Carre.java" afterDir="false" />
+    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="ajout reinitialisation oiseau et tuyau">
       <change beforePath="$PROJECT_DIR$/src/main/java/Flappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flappy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Oiseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Oiseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tuyau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tuyau.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664886491842</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ajout reinitialisation oiseau et tuyau">
+      <created>1664894844460</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664894844460</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +148,7 @@
     <MESSAGE value="ajout centrage oiseau" />
     <MESSAGE value="ajout gravité" />
     <MESSAGE value="ajout touche pause" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout touche pause" />
+    <MESSAGE value="ajout reinitialisation oiseau et tuyau" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout reinitialisation oiseau et tuyau" />
   </component>
 </project>

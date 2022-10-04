@@ -14,8 +14,9 @@ public class Flappy extends Canvas implements KeyListener {
 
     protected boolean pause = false;
     protected Oiseau oiseau;
-//(propriété)création de la collection déplaçable
+//(propriété)création de la collection déplaçable et sprite
     protected ArrayList<Deplacable> listeDeplacable = new ArrayList<>();
+    protected ArrayList<Sprite> listeSprite = new ArrayList<>();
     protected Tuyau tuyau;
 
 
@@ -50,13 +51,15 @@ public class Flappy extends Canvas implements KeyListener {
 //si c'est la première initialisation
         if (oiseau == null) {
             oiseau = new Oiseau(hauteurEcran);
-            oiseau.setVitesseVertical(-1);
+//          oiseau.setVitesseVertical(-1);
             pause = false;
             tuyau = new Tuyau(200, hauteurEcran, largeurEcran);
 
-            listeDeplacable = new ArrayList<>();
             listeDeplacable.add(tuyau);
             listeDeplacable.add(oiseau);
+
+            listeSprite.add(tuyau);
+            listeSprite.add(oiseau);
         } else {
             oiseau.reinitialiser(hauteurEcran);
             tuyau.reinitialiser(largeurEcran);
@@ -82,8 +85,12 @@ public class Flappy extends Canvas implements KeyListener {
             dessin.setColor(Color.WHITE);
             dessin.fillRect(0, 0, largeurEcran, hauteurEcran);
 
-            oiseau.dessiner(dessin);
-            tuyau.dessiner(dessin);
+            for(Sprite sprite : listeSprite) {
+                sprite.dessiner(dessin);
+            }
+
+//            oiseau.dessiner(dessin);
+//            tuyau.dessiner(dessin);
 
             if(!pause) {
 
