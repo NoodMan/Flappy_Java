@@ -77,8 +77,12 @@ public class Flappy extends Canvas implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        //
-        System.out.println(e.getKeyChar());
-        System.out.println(e.getKeyCode());
+
+//test pour verifier si ecouteur fonctionne (bien mettre la souris sur la fenetre Java!!)
+        if(e.getKeyCode()== KeyEvent.VK_SPACE){
+            System.out.println("Ca maaaarche 🙃!!!");
+        }
+//        System.out.println(e.getKeyChar());
+//        System.out.println(e.getKeyCode());
     }
 }
