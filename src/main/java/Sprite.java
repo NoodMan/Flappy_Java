@@ -8,6 +8,7 @@ public abstract class Sprite {
 
     protected Color couleur;
 
+
     public Sprite(int x, int y, Color couleur) {
         this.x = x;
         this.y = y;
@@ -21,6 +22,10 @@ public abstract class Sprite {
     }
 
     public abstract void dessiner(Graphics2D dessin);
+
+    public abstract int getCenterX();
+
+    public abstract int getCenterY();
 
 
     public int getX() {

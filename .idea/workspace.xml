@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="Mise en place heritage...">
+    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="Ajout constructeur et interface">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Capture d’écran 2022-10-04 à 11.25.04.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Capture d’écran 2022-10-04 à 10.38.58.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Carre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Flappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flappy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Oiseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Oiseau.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tuyau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tuyau.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -95,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664873586731</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajout constructeur et interface">
+      <created>1664874793559</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664874793559</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,6 +122,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commis" />
     <MESSAGE value="Mise en place heritage..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mise en place heritage..." />
+    <MESSAGE value="Ajout constructeur et interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout constructeur et interface" />
   </component>
 </project>

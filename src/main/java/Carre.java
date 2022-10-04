@@ -2,9 +2,17 @@ import java.awt.*;
 
 public abstract class Carre extends Sprite{
 
-
     protected int largeur;
 
+    @Override
+    public int getCenterX() {
+        return largeur / 2;
+    }
+
+    @Override
+    public int getCenterY() {
+        return largeur / 2 ;
+    }
 
     public Carre(int x, int y, int largeur, Color couleur) {
         super(x, y, couleur);

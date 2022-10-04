@@ -3,10 +3,15 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+//Flappy possede un oiseau
+
+
 public class Flappy extends Canvas implements KeyListener {
 
     protected int largeurEcran = 700;
-    protected int hauteurEcran = 500;
+    protected int hauteurEcran = 400;
+
+    protected Oiseau oiseau;
 
     public Flappy() throws InterruptedException {
         JFrame fenetre = new JFrame("Flappy");
@@ -40,6 +45,8 @@ public class Flappy extends Canvas implements KeyListener {
 
         long indexFrame = 0;
 
+        oiseau = new Oiseau(hauteurEcran);
+
 
         while (true) {
             indexFrame++;
@@ -49,6 +56,8 @@ public class Flappy extends Canvas implements KeyListener {
             //reset dessin
             dessin.setColor(Color.WHITE);
             dessin.fillRect(0, 0, largeurEcran, hauteurEcran);
+
+            oiseau.dessiner(dessin);
 
             //LE CODE ICI <----
 
