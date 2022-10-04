@@ -46,6 +46,7 @@ public class Flappy extends Canvas implements KeyListener {
         long indexFrame = 0;
 
         oiseau = new Oiseau(hauteurEcran);
+        oiseau.setVitesseVertical(-1);
 
 
         while (true) {
@@ -58,6 +59,15 @@ public class Flappy extends Canvas implements KeyListener {
             dessin.fillRect(0, 0, largeurEcran, hauteurEcran);
 
             oiseau.dessiner(dessin);
+
+            if(oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
+                System.out.println("PERDU!! 😝");
+            } else {
+// pour que l'oiseau descende
+                oiseau.deplacement();
+            }
+
+
 
             //LE CODE ICI <----
 

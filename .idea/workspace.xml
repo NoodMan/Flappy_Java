@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="Ajout constructeur et interface">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Capture d’écran 2022-10-04 à 11.25.04.png" afterDir="false" />
+    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="ajout centrage oiseau">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Capture d’écran 2022-10-04 à 10.38.58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Carre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Flappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flappy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Oiseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Oiseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sprite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +41,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -105,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664874793559</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajout centrage oiseau">
+      <created>1664877897865</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664877897865</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +125,7 @@
     <MESSAGE value="First commis" />
     <MESSAGE value="Mise en place heritage..." />
     <MESSAGE value="Ajout constructeur et interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout constructeur et interface" />
+    <MESSAGE value="ajout centrage oiseau" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout centrage oiseau" />
   </component>
 </project>
