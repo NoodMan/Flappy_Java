@@ -38,7 +38,7 @@ public class Oiseau extends Carre  implements Deplacable{
         dessin.fillRect(x,y, largeur, largeur);
     }
     @Override
-    public void deplacer(){
+    public void deplacer(int largeurEcran, int hauteurEcran){
 //pour diminuer la vitesse vertical
         if(vitesseVertical % 10 != 0&& vitesseVertical < 0) {
             y-= vitesseVertical - 0.5f ;

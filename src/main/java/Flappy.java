@@ -27,26 +27,26 @@ public class Flappy extends Canvas implements KeyListener {
 // --------------------------------------------------------------------
                         // INSERTION IMAGE STELLA
 
-//    public class ImagePanel
-//    {
-//        ImagePanel()
-//        {
-//                JFrame f = new JFrame("Ajouter une image dans JPanel");
-//                JPanel panel = new JPanel();
-//                panel.setBounds(50, 50, 250, 250);
-//                BufferedImage img = ImageIO.read(new File("Stella.png"));
-//                JLabel pic = new JLabel(new ImageIcon(img));
-//                panel.add(pic);
-//                f.add(panel);
-//                f.setSize(400, 400);
-//                f.setLayout(null);
-//                f.setVisible(true);
-//            }
+//    public class AddImage {
+//
+//        public static void main(String[] args) {
+//
+//            //Création de JFrame
+//            JFrame frame = new JFrame("Stella");
+//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            frame.setSize(53,60);
+//            frame.setLocationRelativeTo(null);
+//            frame.setVisible(true);
+//
+//            //URL de l'image
+//            String imgUrl="Stella.png";
+//            new ImageIcon(imgUrl);
+//
+//            //ajouter les deux JLabel a JFrame
+//            frame.getContentPane();
+//            frame.validate();
 //        }
-//        public static void main(String args[])
-//        {
-//            new ImagePanel();
-//        }
+//    }
 //    ----------------------------------------------------------
 
 
@@ -81,19 +81,27 @@ public class Flappy extends Canvas implements KeyListener {
     public void initialiser() {
 
         pause = false;
+
 //si c'est la première initialisation
         if (oiseau == null) {
             oiseau = new Oiseau(hauteurEcran);
             tuyau = new Tuyau(200, hauteurEcran, largeurEcran);
-            Nuage nuage = new Nuage(largeurEcran, hauteurEcran);
+//            Nuage nuage = new Nuage(largeurEcran, hauteurEcran);
 
             listeDeplacable.add(tuyau);
             listeDeplacable.add(oiseau);
-            listeDeplacable.add(nuage);
+//            listeDeplacable.add(nuage);
 
             listeSprite.add(tuyau);
             listeSprite.add(oiseau);
-            listeSprite.add(nuage);
+//            listeSprite.add(nuage);
+
+            //ajout plusieurs nuages
+            for(int i = 0; i< 50; i ++){
+                Nuage nuage = new Nuage(largeurEcran,  hauteurEcran);
+                listeDeplacable.add(nuage);
+                listeSprite.add(nuage);
+            }
         } else {
             for(Deplacable deplacable : listeDeplacable) {
                 deplacable.reinitialiser(largeurEcran,hauteurEcran);
@@ -138,7 +146,7 @@ public class Flappy extends Canvas implements KeyListener {
 
                     // pour déplacer tout ce qui bouge
                     for(Deplacable deplacable : listeDeplacable) {
-                        deplacable.deplacer();
+                        deplacable.deplacer(largeurEcran, hauteurEcran);
                     }
                 }
             }else  {

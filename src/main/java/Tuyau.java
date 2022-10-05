@@ -13,7 +13,7 @@ public class Tuyau extends Rectangle implements Deplacable{
         dessin.fillRect(x, y, largeur, hauteur);
     }
     @Override
-    public void deplacer() {
+    public void deplacer(int largeurEcran, int hauteurEcran) {
         x -= 1;
     }
 
