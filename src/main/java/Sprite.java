@@ -22,6 +22,11 @@ public abstract class Sprite {
     }
 
     public abstract void dessiner(Graphics2D dessin);
+//pour verifier si il y a collision entre x et y
+    public abstract boolean collision(int x, int y);
+
+//pour verifier si il y a collision avec un sprite
+    public abstract boolean collision(Sprite sprite);
 
     public abstract int getCenterX();
 

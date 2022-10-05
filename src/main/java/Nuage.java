@@ -5,7 +5,6 @@ public class Nuage extends Rectangle implements Deplacable{
     public Nuage(int largeurEcran, int hauteurEcran) {
         super(0, 0, 0, 0, new Color(0, 0, 0, 0.05f));
         reinitialiser(largeurEcran,hauteurEcran);
-        x -= (int)(Math.random() * largeurEcran);
     }
 
     @Override
@@ -20,13 +19,14 @@ public class Nuage extends Rectangle implements Deplacable{
         x--;
         if(x < - largeur) {
             reinitialiser(largeurEcran, hauteurEcran);
+            x += largeurEcran;
         }
     }
 
     @Override
     public void reinitialiser(int largeurEcran, int hauteurEcran) {
 //pour que les nuages se déplace dans la fenêtre
-        x = (int)(Math.random() * largeurEcran ) + largeurEcran;
+        x = (int)(Math.random() * largeurEcran );
 //pour que le nuage reste en haut de la fenêtre
         y = (int)(Math.random() * (hauteurEcran / 2));
 //taille aléatoire les nuages

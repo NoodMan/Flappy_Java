@@ -51,9 +51,9 @@ public class Oiseau extends Carre  implements Deplacable{
             vitesseVertical = Math.abs(vitesseVertical) * -1;
         }
     }
-
+//quand on appuie sur la touche entrée
     public void sauter(){
-
+        vitesseVertical = 2;
     }
 
 
