@@ -12,7 +12,7 @@ public abstract class Rectangle extends Carre {
     }
 // couleur par défaut Green
     public Rectangle(int x, int y, int largeur, int hauteur) {
-        super(x, y, largeur, Color.GREEN);
+        super(x, y, largeur, Color.BLACK);
         this.hauteur = hauteur;
     }
 

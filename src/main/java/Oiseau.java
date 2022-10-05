@@ -15,10 +15,10 @@ public class Oiseau extends Carre  implements Deplacable{
         super(x, y, HAUTEUR_OISEAU);
         this.vitesseVertical = 0;
     }
-
-    public Oiseau(int hauteurEcran) {
 //pour center le carre (divise l'écran/ 2 - Taille de l'oiseau / 2 dans la hauteur
-        super(50, getHauteurDepart(hauteurEcran), HAUTEUR_OISEAU);
+    public Oiseau(int hauteurEcran) {
+        super(50, 0, HAUTEUR_OISEAU);
+        reinitialiser(0,hauteurEcran);
         this.vitesseVertical = 0;
     }
 
@@ -26,10 +26,12 @@ public class Oiseau extends Carre  implements Deplacable{
         return hauteurEcran / 2 - HAUTEUR_OISEAU / 2;
     }
 
-    public void reinitialiser(int hauteurEcran) {
-        y = y = hauteurEcran / 2 - HAUTEUR_OISEAU / 2;
+
+    public void reinitialiser(int largeurEcran, int hauteurEcran) {
+        y = hauteurEcran / 2 - HAUTEUR_OISEAU / 2;
         vitesseVertical = 0;
     }
+
     @Override
     public void dessiner(Graphics2D dessin) {
         dessin.setColor(couleur);

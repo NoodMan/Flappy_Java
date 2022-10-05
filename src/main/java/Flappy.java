@@ -1,7 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 
 //Flappy possède un oiseau
@@ -17,7 +20,35 @@ public class Flappy extends Canvas implements KeyListener {
 //(propriété)création de la collection déplaçable et sprite
     protected ArrayList<Deplacable> listeDeplacable = new ArrayList<>();
     protected ArrayList<Sprite> listeSprite = new ArrayList<>();
+
+    protected ArrayList<Nuage> listeNauge = new ArrayList<>();
     protected Tuyau tuyau;
+
+// --------------------------------------------------------------------
+                        // INSERTION IMAGE STELLA
+
+//    public class ImagePanel
+//    {
+//        ImagePanel()
+//        {
+//                JFrame f = new JFrame("Ajouter une image dans JPanel");
+//                JPanel panel = new JPanel();
+//                panel.setBounds(50, 50, 250, 250);
+//                BufferedImage img = ImageIO.read(new File("Stella.png"));
+//                JLabel pic = new JLabel(new ImageIcon(img));
+//                panel.add(pic);
+//                f.add(panel);
+//                f.setSize(400, 400);
+//                f.setLayout(null);
+//                f.setVisible(true);
+//            }
+//        }
+//        public static void main(String args[])
+//        {
+//            new ImagePanel();
+//        }
+//    ----------------------------------------------------------
+
 
 
     public Flappy() throws InterruptedException {
@@ -48,21 +79,25 @@ public class Flappy extends Canvas implements KeyListener {
         demarrer();
     }
     public void initialiser() {
+
+        pause = false;
 //si c'est la première initialisation
         if (oiseau == null) {
             oiseau = new Oiseau(hauteurEcran);
-//          oiseau.setVitesseVertical(-1);
-            pause = false;
             tuyau = new Tuyau(200, hauteurEcran, largeurEcran);
+            Nuage nuage = new Nuage(largeurEcran, hauteurEcran);
 
             listeDeplacable.add(tuyau);
             listeDeplacable.add(oiseau);
+            listeDeplacable.add(nuage);
 
             listeSprite.add(tuyau);
             listeSprite.add(oiseau);
+            listeSprite.add(nuage);
         } else {
-            oiseau.reinitialiser(hauteurEcran);
-            tuyau.reinitialiser(largeurEcran);
+            for(Deplacable deplacable : listeDeplacable) {
+                deplacable.reinitialiser(largeurEcran,hauteurEcran);
+            }
         }
     }
 
@@ -88,9 +123,6 @@ public class Flappy extends Canvas implements KeyListener {
             for(Sprite sprite : listeSprite) {
                 sprite.dessiner(dessin);
             }
-
-//            oiseau.dessiner(dessin);
-//            tuyau.dessiner(dessin);
 
             if(!pause) {
 
