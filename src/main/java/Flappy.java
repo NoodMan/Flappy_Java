@@ -116,8 +116,8 @@ public class Flappy extends Canvas implements KeyListener {
                     for (Deplacable deplacable : listeDeplacable) {
                         deplacable.deplacer(largeurEcran, hauteurEcran);
                     }
-// pour la collision entre oiseau et tuyau en haut a gauche puis droite puis bas gauche puis droite
-                    if(tuyau.collision(oiseau)) {
+
+                    if(Sprite.testCollision(oiseau, tuyau)) {
                         System.out.println("LOOSER 🤭");
                         pause = true;
                     }

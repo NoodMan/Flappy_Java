@@ -21,6 +21,10 @@ public abstract class Sprite {
         this.couleur = Color.RED;
     }
 
+    public static boolean testCollision(Sprite sprite1, Sprite sprite2) {
+        return sprite1.collision(sprite2) || sprite2.collision(sprite1);
+    }
+
     public abstract void dessiner(Graphics2D dessin);
 //pour verifier si il y a collision entre x et y
     public abstract boolean collision(int x, int y);

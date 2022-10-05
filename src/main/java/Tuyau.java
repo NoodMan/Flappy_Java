@@ -14,7 +14,8 @@ public class Tuyau extends Rectangle implements Deplacable{
     }
     @Override
     public void deplacer(int largeurEcran, int hauteurEcran) {
-        x -= 1;
+        // pour régler la vitesse du tuyau
+        x -= 2;
     }
 
     public void reinitialiser(int largeurEcran, int hauteurEcran) {
