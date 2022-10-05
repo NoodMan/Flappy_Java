@@ -3,7 +3,7 @@ import java.awt.*;
 public class Nuage extends Rectangle implements Deplacable{
 
     public Nuage(int largeurEcran, int hauteurEcran) {
-        super(0, 0, 0, 0, new Color(0, 0, 0, 0.05f));
+        super(0, 0, 0, 0, new Color(0, 0, 0, 0.2f));
         reinitialiser(largeurEcran,hauteurEcran);
     }
 

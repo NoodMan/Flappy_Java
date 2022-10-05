@@ -4,8 +4,6 @@ public abstract class Rectangle extends Carre {
 
     protected int hauteur;
 
-
-
     public Rectangle(int x, int y, int largeur, int hauteur, Color couleur) {
         super(x, y, largeur, couleur);
         this.hauteur = hauteur;

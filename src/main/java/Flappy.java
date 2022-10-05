@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Flappy extends Canvas implements KeyListener {
 
     //(propriétés)
-    protected int largeurEcran = 700;
-    protected int hauteurEcran = 400;
+    protected int largeurEcran = 800;
+    protected int hauteurEcran = 500;
 
     protected boolean pause = false;
     protected Oiseau oiseau;
@@ -18,7 +18,6 @@ public class Flappy extends Canvas implements KeyListener {
     protected ArrayList<Deplacable> listeDeplacable = new ArrayList<>();
     protected ArrayList<Sprite> listeSprite = new ArrayList<>();
 
-    protected ArrayList<Nuage> listeNauge = new ArrayList<>();
     protected Tuyau tuyau;
 
     public Flappy() throws InterruptedException {
@@ -61,6 +60,7 @@ public class Flappy extends Canvas implements KeyListener {
             listeDeplacable.add(tuyau);
             listeDeplacable.add(oiseau);
 
+
             listeSprite.add(tuyau);
             listeSprite.add(oiseau);
 
@@ -92,7 +92,7 @@ public class Flappy extends Canvas implements KeyListener {
             Graphics2D dessin = (Graphics2D) getBufferStrategy().getDrawGraphics();
 
             //-----------------------------
-            //reset dessin
+            //reset dessin // ici pour changer le fond
             dessin.setColor(Color.WHITE);
             dessin.fillRect(0, 0, largeurEcran, hauteurEcran);
 
@@ -123,7 +123,7 @@ public class Flappy extends Canvas implements KeyListener {
                     }
                 }
             } else {
-                //pour que la fenetre change de couleur quand le jeu ait en pause et si on perd
+//pour que la fenêtre change de couleur quand le jeu ait en pause et si on perd
                 dessin.setColor(new Color(0, 0, 0, 0.1f));
                 dessin.fillRect(0, 0, largeurEcran, largeurEcran);
             }

@@ -36,9 +36,8 @@ public abstract class Carre extends Sprite{
     @Override
     public boolean collision(Sprite sprite) {
 
-        if(sprite instanceof Rectangle) {
-            Rectangle rectangle = (Rectangle) sprite;
-// pour la collision entre oiseau et tuyau en haut a gauche puis droite puis bas gauche puis droite
+        if(sprite instanceof Rectangle rectangle) {
+            // pour la collision entre oiseau et tuyau en haut à gauche puis droite puis bas gauche puis droite
             return this.collision(rectangle.getX(), rectangle.getY())
                     || this.collision(rectangle.getX() + rectangle.getLargeur(), rectangle.getY()) //vérification Horizontal
                     || this.collision(rectangle.getX(),rectangle.getY() + rectangle.getHauteur()) //vérification Vertical
