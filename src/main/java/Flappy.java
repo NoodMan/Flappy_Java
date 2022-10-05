@@ -1,7 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 //Flappy possède un oiseau
@@ -9,9 +13,10 @@ import java.util.ArrayList;
 public class Flappy extends Canvas implements KeyListener {
 
     //(propriétés)
-    protected int largeurEcran = 800;
-    protected int hauteurEcran = 500;
+    protected int largeurEcran = 900;
+    protected int hauteurEcran = 600;
 
+    protected BufferedImage image;
     protected boolean pause = false;
     protected Oiseau oiseau;
     //(propriété)création de la collection déplaçable et sprite
@@ -19,6 +24,9 @@ public class Flappy extends Canvas implements KeyListener {
     protected ArrayList<Sprite> listeSprite = new ArrayList<>();
 
     protected Tuyau tuyau;
+//    protected ArrayList<Tuyau> listeTuyau = new ArrayList<>();
+//    protected int distanceTuyau = 250;
+//    protected int ecartTuyau = 120;
 
     public Flappy() throws InterruptedException {
         JFrame fenetre = new JFrame("Flappy");
@@ -60,17 +68,19 @@ public class Flappy extends Canvas implements KeyListener {
             listeDeplacable.add(tuyau);
             listeDeplacable.add(oiseau);
 
-
             listeSprite.add(tuyau);
             listeSprite.add(oiseau);
 
+
 //ajout plusieurs nuages!!
-            for (int i = 0; i < 25; i++) {
+            for (int i = 0; i < 60; i++) {
                 Nuage nuage = new Nuage(largeurEcran, hauteurEcran);
                 listeDeplacable.add(nuage);
                 listeSprite.add(nuage);
             }
-        } else {
+
+        }
+            else {
             for (Deplacable deplacable : listeDeplacable) {
                 deplacable.reinitialiser(largeurEcran, hauteurEcran);
             }
@@ -94,7 +104,14 @@ public class Flappy extends Canvas implements KeyListener {
             //-----------------------------
             //reset dessin // ici pour changer le fond
             dessin.setColor(Color.WHITE);
-            dessin.fillRect(0, 0, largeurEcran, hauteurEcran);
+//            dessin.fillRect(0, 0, largeurEcran, hauteurEcran);
+            dessin.drawImage(image, 0, 0, null);
+            try {
+                image = ImageIO.read(new File("src/main/resources/background.jpg"));
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
 
             for (Sprite sprite : listeSprite) {
                 sprite.dessiner(dessin);

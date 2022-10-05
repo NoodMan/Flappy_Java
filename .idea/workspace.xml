@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="amélioration test collision">
+    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="ajout image oiseau">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Carre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Diagramme.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Diagramme.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Flappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flappy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Nuage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Nuage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Oiseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Oiseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Stella.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Stella.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tuyau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tuyau.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,21 +35,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.editor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
   <component name="RunManager">
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664972243784</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="ajout image oiseau">
+      <created>1664981463271</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1664981463271</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +200,7 @@
     <MESSAGE value="ajout plusieurs de nuages !!" />
     <MESSAGE value="ajout test collision" />
     <MESSAGE value="amélioration test collision" />
-    <option name="LAST_COMMIT_MESSAGE" value="amélioration test collision" />
+    <MESSAGE value="ajout image oiseau" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout image oiseau" />
   </component>
 </project>
