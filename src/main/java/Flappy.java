@@ -21,7 +21,7 @@ public class Flappy extends Canvas implements KeyListener {
     protected BufferedImage imageHaut = ImageIO.read(new File("src/main/resources/tuyauHaut.png"));
     protected boolean pause = false;
 
-    protected boolean enCour = true;
+    protected boolean enCours = true;
 
     protected Oiseau oiseau;
     //(propriété)création de la collection déplaçable et sprite
@@ -64,7 +64,7 @@ public class Flappy extends Canvas implements KeyListener {
     public void initialiser() {
 
         pause = false;
-        enCour = true;
+        enCours = true;
 
 //si c'est la première initialisation des oiseaux
         if (oiseau == null) {
@@ -146,7 +146,7 @@ public class Flappy extends Canvas implements KeyListener {
                     largeurEcran - 100,
                     50);
 
-            if (enCour) {
+            if (enCours) {
 
 
                 if (!pause) {
@@ -154,7 +154,7 @@ public class Flappy extends Canvas implements KeyListener {
 //si jamais l'oiseau est tombé par terre
                     if (oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
                         System.out.println("PERDU!! 😝");
-                        enCour = false;
+                        enCours = false;
 
                     } else {
 // sinon si le jeu continu / pour que l'oiseau descende
@@ -168,7 +168,7 @@ public class Flappy extends Canvas implements KeyListener {
                         for (Tuyau tuyau : listeTuyau) {
                             if (Sprite.testCollision(oiseau, tuyau)) {
                                 System.out.println("LOOSER 🤭");
-                                enCour = false;
+                                enCours = false;
 
                             }
                         }

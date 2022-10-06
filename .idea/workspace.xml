@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="correctif cloud">
+    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="add plusieurs tuyaux">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Flappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flappy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Tuyau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tuyau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Stella.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Stella.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665047245532</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add plusieurs tuyaux">
+      <created>1665062999222</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1665062999222</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,14 +224,15 @@
     <MESSAGE value="ajout image oiseau" />
     <MESSAGE value="ajout background and cloud" />
     <MESSAGE value="correctif cloud" />
-    <option name="LAST_COMMIT_MESSAGE" value="correctif cloud" />
+    <MESSAGE value="add plusieurs tuyaux" />
+    <option name="LAST_COMMIT_MESSAGE" value="add plusieurs tuyaux" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Tuyau.java</url>
-          <line>64</line>
+          <line>60</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

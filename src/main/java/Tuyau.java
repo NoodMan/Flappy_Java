@@ -6,8 +6,7 @@ import java.io.IOException;
 
 public class Tuyau extends Rectangle implements Deplacable{
 
-    protected BufferedImage image;
-    protected BufferedImage image1;
+
 
     protected int decalage;
     protected BufferedImage imageTuyau;
@@ -28,19 +27,19 @@ public class Tuyau extends Rectangle implements Deplacable{
 //création tuyau haut et bas
 
 
-        try {
-            image = ImageIO.read(new File("src/main/resources/tuyau.png"));
-            image1 = ImageIO.read(new File("src/main/resources/tuyauHaut.png"));
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            image = ImageIO.read(new File("src/main/resources/tuyau.png"));
+//            image1 = ImageIO.read(new File("src/main/resources/tuyauHaut.png"));
+//
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
 
 }
 //crée dessin d'un tuyau
     @Override
     public void dessiner(Graphics2D dessin) {
-        dessin.setColor(couleur);
+//        dessin.setColor(couleur);
 //        dessin.fillRect(x, y, largeur, hauteur);
         dessin.drawImage(imageTuyau, x, y,null);
     }
@@ -49,14 +48,11 @@ public class Tuyau extends Rectangle implements Deplacable{
         // pour régler la vitesse du tuyau
         x -= 5;
 
-
-
         if (x < - largeur){
             x = largeurEcran;
 
         }
     }
-
     public void reinitialiser(int largeurEcran, int hauteurEcran) {
         x = largeurEcran + decalage;
 
