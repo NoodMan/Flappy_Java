@@ -17,6 +17,8 @@ public class Flappy extends Canvas implements KeyListener {
     protected int hauteurEcran = 600;
 
     protected BufferedImage image;
+    protected  BufferedImage imageBas= ImageIO.read(new File("src/main/resources/tuyau.png"));
+    protected BufferedImage imageHaut = ImageIO.read(new File("src/main/resources/tuyauHaut.png"));
     protected boolean pause = false;
 
     protected boolean enCour = true;
@@ -25,13 +27,13 @@ public class Flappy extends Canvas implements KeyListener {
     //(propriété)création de la collection déplaçable et sprite
     protected ArrayList<Deplacable> listeDeplacable = new ArrayList<>();
     protected ArrayList<Sprite> listeSprite = new ArrayList<>();
+    protected ArrayList<Tuyau> listeTuyau = new ArrayList<>();
 
-    protected Tuyau tuyau;
-//    protected ArrayList<Tuyau> listeTuyau = new ArrayList<>();
-//    protected int distanceTuyau = 50;
-//    protected int ecartTuyau = 60;
+//    protected Tuyau tuyau;
+      protected int distanceTuyau = 50;
+      protected int ecartTuyau = 60;
 
-    public Flappy() throws InterruptedException {
+    public Flappy() throws InterruptedException, IOException {
         JFrame fenetre = new JFrame("Flappy");
         //On récupère le panneau de la fenêtre principale
         JPanel panneau = (JPanel) fenetre.getContentPane();
@@ -64,16 +66,15 @@ public class Flappy extends Canvas implements KeyListener {
         pause = false;
         enCour = true;
 
-//si c'est la première initialisation
+//si c'est la première initialisation des oiseaux
         if (oiseau == null) {
             oiseau = new Oiseau(hauteurEcran);
-            tuyau = new Tuyau(190, hauteurEcran, largeurEcran);
-
-            listeDeplacable.add(tuyau);
             listeDeplacable.add(oiseau);
-
-            listeSprite.add(tuyau);
             listeSprite.add(oiseau);
+
+//            Tuyau tuyau = new Tuyau(190, hauteurEcran, largeurEcran, 100);
+//            listeDeplacable.add(tuyau);
+//            listeSprite.add(tuyau);
 
 
 //ajout plusieurs nuages!!
@@ -82,6 +83,21 @@ public class Flappy extends Canvas implements KeyListener {
                 listeDeplacable.add(nuage);
                 listeSprite.add(nuage);
             }
+
+            int nbrTuyau = 3;
+            int decalage = (largeurEcran + 100) / nbrTuyau;
+
+            for (int i = 0; i < nbrTuyau; i++) {
+                Tuyau tuyau = new Tuyau(190, hauteurEcran, largeurEcran, i*decalage, imageBas);
+                Tuyau tuyauHaut = new Tuyau(190, 190, largeurEcran, i*decalage, imageHaut);
+                listeTuyau.add(tuyau);
+                listeDeplacable.add(tuyau);
+                listeSprite.add(tuyau);
+                listeTuyau.add(tuyauHaut);
+                listeDeplacable.add(tuyauHaut);
+                listeSprite.add(tuyauHaut);
+            }
+
 
         } else {
             for (Deplacable deplacable : listeDeplacable) {
@@ -92,7 +108,7 @@ public class Flappy extends Canvas implements KeyListener {
 
     public void demarrer() throws InterruptedException {
 
-        long indexFrame = 0;
+        long point = 0;
 
         Font police = new Font("Calibri", Font.BOLD, 30);
 
@@ -103,7 +119,7 @@ public class Flappy extends Canvas implements KeyListener {
 
         while (true) {
 
-            indexFrame++;
+
             Graphics2D dessin = (Graphics2D) getBufferStrategy().getDrawGraphics();
 
             //-----------------------------
@@ -121,6 +137,15 @@ public class Flappy extends Canvas implements KeyListener {
             for (Sprite sprite : listeSprite) {
                 sprite.dessiner(dessin);
             }
+
+            //affichage HUD
+            dessin.setColor(Color.BLACK);
+            dessin.setFont(police);
+            dessin.drawString(
+                    String.valueOf(point),
+                    largeurEcran - 100,
+                    50);
+
             if (enCour) {
 
 
@@ -133,19 +158,22 @@ public class Flappy extends Canvas implements KeyListener {
 
                     } else {
 // sinon si le jeu continu / pour que l'oiseau descende
-
+                        point ++;
 
                         // pour déplacer tout ce qui bouge
                         for (Deplacable deplacable : listeDeplacable) {
                             deplacable.deplacer(largeurEcran, hauteurEcran);
                         }
 
-                        if (Sprite.testCollision(oiseau, tuyau)) {
-                            System.out.println("LOOSER 🤭");
-                            enCour = false;
+                        for (Tuyau tuyau : listeTuyau) {
+                            if (Sprite.testCollision(oiseau, tuyau)) {
+                                System.out.println("LOOSER 🤭");
+                                enCour = false;
 
-
+                            }
                         }
+
+
 
                     }
                 } else {
@@ -158,21 +186,21 @@ public class Flappy extends Canvas implements KeyListener {
                     dessin.setFont(police);
                     String String = "PAUSE";
                     dessin.drawString(
-                            String.valueOf("PAUSE"),
-                            largeurEcran - 550,
+                            String.valueOf("---> PAUSE 😴 <---"),
+                            largeurEcran - 660,
                             150);
                 }
             } else {
 
-                dessin.setColor(new Color(0.5f, 0, 0, 0.5f));
+                dessin.setColor(new Color(1f, 0, 0, 0.7f));
                 dessin.fillRect(0, 0, largeurEcran, largeurEcran);
                 //pour l'affichage du mot Perdu
                 dessin.setColor(Color.BLACK);
                 dessin.setFont(police);
-                String String = "LOOSER";
+                String String = "LOSER";
                 dessin.drawString(
-                        String.valueOf("LOOSER"),
-                        largeurEcran - 550,
+                        String.valueOf("`LOSER´👎 !! Try again... 😂  "),
+                        largeurEcran - 700,
                         150);
             }
             //-----------------------------
@@ -184,7 +212,7 @@ public class Flappy extends Canvas implements KeyListener {
     }
 
     // creation de l'objet (this)
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         new Flappy();
     }
 
