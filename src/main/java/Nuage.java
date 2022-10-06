@@ -9,6 +9,8 @@ public class Nuage extends Rectangle implements Deplacable{
     protected BufferedImage image;
     protected BufferedImage image1;
     protected BufferedImage image2;
+
+    protected double hasard = Math.random();
     public Nuage(int largeurEcran, int hauteurEcran) {
         super(0, 0, 0, 0, new Color(0, 0, 0, 0.2f));
         reinitialiser(largeurEcran,hauteurEcran);
@@ -28,9 +30,19 @@ public class Nuage extends Rectangle implements Deplacable{
     public void dessiner(Graphics2D dessin) {
         dessin.setColor(couleur);
 //        dessin.fillRect(x, y, largeur, hauteur);
-        dessin.drawImage(image, x, y,null);
-        dessin.drawImage(image1, x, y,null);
-        dessin.drawImage(image2, x, y,null);
+
+//
+//
+
+
+        if(hasard > 0.6){
+            dessin.drawImage(image, x, y,null);
+        }else if(hasard > 0.3){
+            dessin.drawImage(image1, x, y,null);
+        }else {
+            dessin.drawImage(image2, x, y,null);
+        }
+
     }
 
     @Override

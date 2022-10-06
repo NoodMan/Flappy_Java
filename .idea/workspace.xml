@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="ajout image oiseau">
+    <list default="true" id="b7cb3ca4-849d-45d6-8df7-76b2d4446bdc" name="Changes" comment="ajout background and cloud">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Flappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flappy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Nuage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Nuage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Tuyau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tuyau.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664981463271</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="ajout background and cloud">
+      <created>1665006598167</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1665006598167</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +209,18 @@
     <MESSAGE value="ajout test collision" />
     <MESSAGE value="amélioration test collision" />
     <MESSAGE value="ajout image oiseau" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout image oiseau" />
+    <MESSAGE value="ajout background and cloud" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout background and cloud" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Tuyau.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

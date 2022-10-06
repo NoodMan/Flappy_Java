@@ -14,7 +14,6 @@ public abstract class Rectangle extends Carre {
         this.hauteur = hauteur;
     }
 
-
     @Override
     public boolean collision(int x, int y) {
         return x >= this.x

@@ -13,11 +13,14 @@ import java.util.ArrayList;
 public class Flappy extends Canvas implements KeyListener {
 
     //(propriétés)
-    protected int largeurEcran = 900;
+    protected int largeurEcran = 1000;
     protected int hauteurEcran = 600;
 
     protected BufferedImage image;
     protected boolean pause = false;
+
+    protected boolean enCour = true;
+
     protected Oiseau oiseau;
     //(propriété)création de la collection déplaçable et sprite
     protected ArrayList<Deplacable> listeDeplacable = new ArrayList<>();
@@ -25,8 +28,8 @@ public class Flappy extends Canvas implements KeyListener {
 
     protected Tuyau tuyau;
 //    protected ArrayList<Tuyau> listeTuyau = new ArrayList<>();
-//    protected int distanceTuyau = 250;
-//    protected int ecartTuyau = 120;
+//    protected int distanceTuyau = 50;
+//    protected int ecartTuyau = 60;
 
     public Flappy() throws InterruptedException {
         JFrame fenetre = new JFrame("Flappy");
@@ -59,11 +62,12 @@ public class Flappy extends Canvas implements KeyListener {
     public void initialiser() {
 
         pause = false;
+        enCour = true;
 
 //si c'est la première initialisation
         if (oiseau == null) {
             oiseau = new Oiseau(hauteurEcran);
-            tuyau = new Tuyau(200, hauteurEcran, largeurEcran);
+            tuyau = new Tuyau(190, hauteurEcran, largeurEcran);
 
             listeDeplacable.add(tuyau);
             listeDeplacable.add(oiseau);
@@ -73,14 +77,13 @@ public class Flappy extends Canvas implements KeyListener {
 
 
 //ajout plusieurs nuages!!
-            for (int i = 0; i < 60; i++) {
+            for (int i = 0; i < 30; i++) {
                 Nuage nuage = new Nuage(largeurEcran, hauteurEcran);
                 listeDeplacable.add(nuage);
                 listeSprite.add(nuage);
             }
 
-        }
-            else {
+        } else {
             for (Deplacable deplacable : listeDeplacable) {
                 deplacable.reinitialiser(largeurEcran, hauteurEcran);
             }
@@ -90,6 +93,8 @@ public class Flappy extends Canvas implements KeyListener {
     public void demarrer() throws InterruptedException {
 
         long indexFrame = 0;
+
+        Font police = new Font("Calibri", Font.BOLD, 30);
 
         initialiser();
 
@@ -116,40 +121,66 @@ public class Flappy extends Canvas implements KeyListener {
             for (Sprite sprite : listeSprite) {
                 sprite.dessiner(dessin);
             }
+            if (enCour) {
 
-            if (!pause) {
+
+                if (!pause) {
 
 //si jamais l'oiseau est tombé par terre
-                if (oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
-                    System.out.println("PERDU!! 😝");
-                    pause = true;
-                } else {
+                    if (oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
+                        System.out.println("PERDU!! 😝");
+                        enCour = false;
+
+                    } else {
 // sinon si le jeu continu / pour que l'oiseau descende
-//                    oiseau.deplacer();
-// pour que le tuyau bouge
-//                    tuyau.deplacer();
 
-                    // pour déplacer tout ce qui bouge
-                    for (Deplacable deplacable : listeDeplacable) {
-                        deplacable.deplacer(largeurEcran, hauteurEcran);
-                    }
 
-                    if(Sprite.testCollision(oiseau, tuyau)) {
-                        System.out.println("LOOSER 🤭");
-                        pause = true;
+                        // pour déplacer tout ce qui bouge
+                        for (Deplacable deplacable : listeDeplacable) {
+                            deplacable.deplacer(largeurEcran, hauteurEcran);
+                        }
+
+                        if (Sprite.testCollision(oiseau, tuyau)) {
+                            System.out.println("LOOSER 🤭");
+                            enCour = false;
+
+
+                        }
+
                     }
+                } else {
+//pour que la fenêtre change de couleur quand le jeu ait en pause et si on perd
+                    dessin.setColor(new Color(0, 0, 0, 0.5f));
+                    dessin.fillRect(0, 0, largeurEcran, largeurEcran);
+
+//pour l'affichage du mot PAUSE
+                    dessin.setColor(Color.BLACK);
+                    dessin.setFont(police);
+                    String String = "PAUSE";
+                    dessin.drawString(
+                            String.valueOf("PAUSE"),
+                            largeurEcran - 550,
+                            150);
                 }
             } else {
-//pour que la fenêtre change de couleur quand le jeu ait en pause et si on perd
-                dessin.setColor(new Color(0, 0, 0, 0.1f));
-                dessin.fillRect(0, 0, largeurEcran, largeurEcran);
-            }
 
+                dessin.setColor(new Color(0.5f, 0, 0, 0.5f));
+                dessin.fillRect(0, 0, largeurEcran, largeurEcran);
+                //pour l'affichage du mot Perdu
+                dessin.setColor(Color.BLACK);
+                dessin.setFont(police);
+                String String = "LOOSER";
+                dessin.drawString(
+                        String.valueOf("LOOSER"),
+                        largeurEcran - 550,
+                        150);
+            }
             //-----------------------------
             dessin.dispose();
             getBufferStrategy().show();
             Thread.sleep(1000 / 60);
         }
+
     }
 
     // creation de l'objet (this)
@@ -177,11 +208,13 @@ public class Flappy extends Canvas implements KeyListener {
 //appuyer sur entrer pour réinitialiser le jeu!!
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             initialiser();
+
         }
 // appuyer sur P pour mettre en pause le jeu et P pour reprendre
         if (e.getKeyCode() == KeyEvent.VK_P) {
             //inverser un boolean
             pause = !pause;
+
         }
 //test pour verifier si écouteur fonctionne (bien mettre la souris sur la fenêtre Java!!)
 //        if(e.getKeyCode()== KeyEvent.VK_SPACE){
